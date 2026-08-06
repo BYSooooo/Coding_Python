@@ -1,3 +1,5 @@
+## 2-2. Boolean and Strings
+
 ## String
 a = 456 # = Number
 my_name = nico #(X) nico is Variable. but can not find that

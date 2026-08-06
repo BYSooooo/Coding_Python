@@ -1,3 +1,5 @@
+## 2-4. Functions
+
 print(True)
 print("Hello")
 print(12)

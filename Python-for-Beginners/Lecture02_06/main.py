@@ -1,3 +1,5 @@
+## 2-6. Parameters 
+
 def say_hello_01():
     print('Hello. How are you?')
 
