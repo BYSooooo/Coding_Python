@@ -3,11 +3,10 @@
 import requests
 from bs4 import BeautifulSoup
 
-all_jobs=[]
-
 # Create new Function for handling page
 def scrap_page(url):
 
+    print(f"Scrapping {url}")
     # Copy previous structure
     response = requests.get(url)
     soup = BeautifulSoup(response.content, "html.parser")
@@ -28,13 +27,15 @@ def scrap_page(url):
         
         print(f"{title} - {company}{headquater_text}")
 
-import requests
-from bs4 import BeautifulSoup
 
-url = "https://weworkremotely.com/remote-full-time-jobs?page=2"
 response = requests.get(url) 
 soup = BeautifulSoup(response.content, "html.parser")
 
 pages = soup.find('div', class_="pagination")
 buttons = len(pages.find_all("span", class_="page"))
-print(buttons)
+
+for x in range(buttons):
+    url = f"https://weworkremotely.com/remote-full-time-jobs?page={x+1}"
+    scrap_page(url)
+
+
