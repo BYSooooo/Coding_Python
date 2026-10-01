@@ -1,0 +1,16 @@
+## Playwright
+
+# Install Playwright
+# pip install playwright
+
+from playwright.sync_api import sync_playwright
+
+p = sync_playwright().start()
+
+browser = p.firefox.launch()
+
+page = browser.new_page()
+
+page.goto("https://google.com")
+
+page.screenshot(path="screenshot.png")
