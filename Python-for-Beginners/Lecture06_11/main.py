@@ -47,5 +47,25 @@ soup = BeautifulSoup(content, "html.parser")
 # Get a Job List
 jobs = soup.find_all('div', class_="JobCard_container__zQcZs")
 
+jobs_db = []
+
+# Get a additional informatin in each div
 for job in jobs:
-    anchor = job.find("a")
+    link = f"https://wanted.co.kr{job.find('a')['href']}"
+    title = job.find("strong", class_="JobCard_title___kfvj").text
+    company_name = job.find("span", class_="CompanyNameWithLocationPeriod_CompanyNameWithLocationPeriod__company__ByVLu wds-nkj4w6").text
+    reward = job.find("span", class_="CompanyNameWithLocationPeriod_CompanyNameWithLocationPeriod__location__4_w0l wds-nkj4w6").text
+
+    # Gathering Information result of scrap
+    job = {
+        "title" : title,
+        "company_name" : company_name,
+        "reward" : reward,
+        "link" : link
+    }
+    # Add data to list
+    jobs_db.append(job)
+
+# Check for Result
+print(jobs_db)
+print(len(jobs_db))
