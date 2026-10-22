@@ -12,7 +12,7 @@ def indeed_jobs(keyword):
     page.goto("https://www.wanted.co.kr/")
     time.sleep(5)
 
-    page.click('button.wds-1cqc7gt')
+    page.click('button.montage-1vxacxt')
     time.sleep(5)
 
     page.get_by_placeholder("검색어를 입력해 주세요.").fill(keyword)
@@ -51,8 +51,8 @@ def indeed_jobs(keyword):
     for job in jobs:
         link = f"https://wanted.co.kr{job.find('a')['href']}"
         title = job.find("strong", class_="JobCard_title___kfvj").text
-        company_name = job.find("span", class_="CompanyNameWithLocationPeriod_CompanyNameWithLocationPeriod__company__ByVLu wds-nkj4w6").text
-        reward = job.find("span", class_="CompanyNameWithLocationPeriod_CompanyNameWithLocationPeriod__location__4_w0l wds-nkj4w6").text
+        company_name = job.find("span", class_="CompanyNameWithLocationPeriod_CompanyNameWithLocationPeriod__company__ByVLu montage-1jwduw8").text
+        reward = job.find("span", class_="CompanyNameWithLocationPeriod_CompanyNameWithLocationPeriod__location__4_w0l montage-1jwduw8").text
 
         job = {
             "title" : title,
